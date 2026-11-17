@@ -49,9 +49,25 @@ lang: zh-CN          # 英文文章写 en
 | `assets/` | 图片等静态资源（`assets/lib` 是主题资源子模块，不要手动改） |
 | `_plugins/` | 构建用的自定义插件 |
 
-## 发布图片
+## 图片（Cloudflare R2）
 
-小图片直接放进 `assets/img/` 并在文章里引用；大量图片建议放 Cloudflare R2，再把公开域名填到 `_config.yml` 的 `cdn:` 字段，这样文章里的 `/xxx.jpg` 会自动走 R2。
+图片统一放在 R2，不占用 Git 仓库空间：
+
+| 配置项 | 值 |
+| --- | --- |
+| 存储桶 | `junxin-blog-images` |
+| 公共地址 | `https://pub-5cf7eb81e16a4aee914198494b113154.r2.dev` |
+| `_config.yml` | `cdn` 已指向上面的地址 |
+
+上传图片后，在文章里用**以 `/` 开头的路径**引用，主题会自动把它拼到 R2 域名：
+
+```markdown
+![封面](/covers/2026/hello.jpg)
+```
+
+实际地址是 `https://pub-5cf7eb81e16a4aee914198494b113154.r2.dev/covers/2026/hello.jpg`。
+
+> `r2.dev` 是开发用地址，有速率限制。访问量大时，在 R2 里给桶绑定自己的域名（例如 `img.example.com`），再把 `cdn` 换成该域名即可。
 
 ## 部署（Cloudflare Pages）
 
