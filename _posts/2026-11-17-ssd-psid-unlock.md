@@ -94,6 +94,8 @@ lang: zh-CN
 | **Windows 安全模式** | 只能进安全模式 | `PE专用_一键重置.bat` | 纯 cmd，不依赖 PowerShell / UAC / Server 服务 |
 | **U 盘 Linux Live** | 没有系统盘 / 前两条失败 | Ventoy → Ubuntu → `go.sh` | 完全绕开 Windows 限制，成功率最高 |
 
+> 💡 表中的 `一键重置.bat`、`PE专用_一键重置.bat` 等脚本都打包在本文配套的**一键工具包**里，下载方式见下方第 6 节。
+
 三条路线共用同一个工具包（`sedutil-cli` 的 Windows / Linux 版本）和同一份 PSID 配置，目标都是那条不可逆命令：
 
 ```
@@ -104,9 +106,19 @@ sedutil-cli --yesIreallywanttoERASEALLmydatausingthePSID <PSID> /dev/nvme0
 
 ---
 
-## 6. 工具下载（官方 / 社区编译版）
+## 6. 工具下载
 
-本案例用到的工具全部可离线获取。以下链接均已核实为官方或社区维护的发布页，**下载后请核对哈希**。
+### ⭐ 一键工具包（本文配套，推荐直接下这个）
+
+把上面三条路线要用的脚本和程序都打包好了，解压即用，不用自己拼装：
+
+- **下载**：[psid-unlock-toolkit.zip（1.6 MB）](/files/psid-unlock-toolkit.zip)
+- 包含：`一键重置.bat`（自动提权 + 全程日志）、`PE专用_一键重置.bat`（安全模式/WinPE 用，纯 cmd）、`run.ps1`、`go.sh`（Linux 一键）、`写入U盘.bat`，以及 Windows / Linux 版 `sedutil-cli`、VC++ 运行库、全部说明文档。
+- 已把 `PSID.txt` 留成**空模板**——请按第 8 节把自己的 PSID 填进去；包内不含任何真实 PSID。
+
+### 官方 / 社区工具（想自己拼装时再下）
+
+本案例用到的底层工具全部可离线获取。以下链接均已核实为官方或社区维护的发布页，**下载后请核对哈希**。
 
 **sedutil-cli —— 核心解锁工具**（Windows 命令行程序，本案例的 `sedutil-cli.exe` 即来自此 SHA-512 版本）
 - GitHub 发布页：https://github.com/ChubbyAnt/sedutil/releases/tag/1.15-5ad84d8
