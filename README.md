@@ -22,7 +22,7 @@ $env:Path = "C:\Ruby34-x64\bin;$env:Path"
 
 ## 写一篇新文章
 
-在 `_posts/` 下新建文件，命名格式为 `YYYY-MM-DD-标题.md`，开头写 front matter：
+可以直接复制 `_drafts/post-template.md` 作为起点。文章放在 `_posts/` 下，命名格式为 `YYYY-MM-DD-标题.md`，开头写 front matter：
 
 ```yaml
 ---
