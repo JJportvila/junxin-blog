@@ -56,8 +56,9 @@ lang: zh-CN          # 英文文章写 en
 | 配置项 | 值 |
 | --- | --- |
 | 存储桶 | `junxin-blog-images` |
-| 公共地址 | `https://pub-5cf7eb81e16a4aee914198494b113154.r2.dev` |
-| `_config.yml` | `cdn` 已指向上面的地址 |
+| 公共地址 | `https://img.stret.net`（自定义域，已绑定并启用 HTTPS） |
+| 备用开发地址 | `https://pub-5cf7eb81e16a4aee914198494b113154.r2.dev` |
+| `_config.yml` | `cdn` 已指向 `https://img.stret.net` |
 
 上传图片后，在文章里用**以 `/` 开头的路径**引用，主题会自动把它拼到 R2 域名：
 
@@ -65,9 +66,9 @@ lang: zh-CN          # 英文文章写 en
 ![封面](/covers/2026/hello.jpg)
 ```
 
-实际地址是 `https://pub-5cf7eb81e16a4aee914198494b113154.r2.dev/covers/2026/hello.jpg`。
+实际地址是 `https://img.stret.net/covers/2026/hello.jpg`。
 
-> `r2.dev` 是开发用地址，有速率限制。访问量大时，在 R2 里给桶绑定自己的域名（例如 `img.example.com`），再把 `cdn` 换成该域名即可。
+> R2 已绑定自定义域 `img.stret.net`，走 Cloudflare CDN，没有 `r2.dev` 的速率限制。`r2.dev` 开发地址仍然保留，仅作备用。
 
 ## 评论（giscus）
 
