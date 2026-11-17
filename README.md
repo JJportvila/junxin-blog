@@ -69,6 +69,25 @@ lang: zh-CN          # 英文文章写 en
 
 > `r2.dev` 是开发用地址，有速率限制。访问量大时，在 R2 里给桶绑定自己的域名（例如 `img.example.com`），再把 `cdn` 换成该域名即可。
 
+## 评论（giscus）
+
+评论基于 GitHub Discussions，由 [giscus](https://giscus.app/) 提供：
+
+| 配置项 | 值 |
+| --- | --- |
+| 仓库 | `JJportvila/junxin-blog`（giscus App 已安装，仅授权此仓库） |
+| 分类 | `General` |
+| 映射 | `pathname`（每篇文章一个讨论） |
+| 配置位置 | `_config.yml` 的 `comments.giscus` |
+
+更换仓库或分类时，到 https://giscus.app/ 生成新的 `repo_id` 和 `category_id` 再替换即可。
+
+## 自定义域名
+
+- 站点：https://blog.stret.net
+- Cloudflare Pages → 自定义域：已绑定，CNAME 指向 `junxin-blog.pages.dev`
+- `_config.yml` 的 `url` 已设为该域名；`junxin-blog.pages.dev` 仍然可访问
+
 ## 部署（Cloudflare Pages）
 
 在 Cloudflare 控制台 → Workers & Pages → 创建 Pages → 连接 Git 仓库，构建参数：
