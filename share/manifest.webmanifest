@@ -1,0 +1,38 @@
+{
+  "name": "转发到博客",
+  "short_name": "发博客",
+  "description": "把看到的新闻一键转发到 blog.stret.net",
+  "id": "/share/",
+  "start_url": "/share/",
+  "scope": "/share/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#4338ca",
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icon-192-maskable.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icon-512-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "share_target": {
+    "action": "/share/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "shortcuts": [
+    {
+      "name": "手动粘贴链接",
+      "short_name": "手动转发",
+      "description": "粘贴标题和网址，手动转发",
+      "url": "/share/?mode=manual",
+      "icons": [{ "src": "icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
